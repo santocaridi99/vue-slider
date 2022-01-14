@@ -13,9 +13,10 @@
     <div id="app">
         <div class="container">
             <!-- quando vado in hover chiama  function modale -->
+            <!-- quando non sono in hover chiama closeModal -->
             <!-- src v-bind prende url dall'indice della foto -->
-            <!-- alt v-bind prende nome dall'indice dekka foto -->
-            <img @mouseover='openModal' :src="photo[currentIndex].url" :alt="photo[currentIndex].nome">
+            <!-- alt v-bind prende nome dall'indice della foto -->
+            <img v-on:mouseover='openModal' v-on:mouseleave='closeModal' :src="photo[currentIndex].url" :alt="photo[currentIndex].nome">
             <!-- div con modale , v-if modalShow è vera allora è visibile  -->
             <div v-if="modalShow" class="pause">
                 <i class="fas fa-pause-circle"></i>

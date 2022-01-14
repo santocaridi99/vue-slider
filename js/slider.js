@@ -62,15 +62,23 @@ new Vue({
             if (!this.modalShow) { // qui è false
                 this.modalShow = true;//diventerà vera
                 clearInterval(this.timer)//si stopperà il timer
-            } else {  // qui è true
+            }
+        },
+        //chiusura modale
+        closeModal:function(){
+            if(this.modalShow) {  // qui è true
                 this.modalShow = false;//modale diventerà falsa
                 this.autoplay(this.timer);//avrò autoplay
             }
         }
     },
     //una funzione mounted esterna o montata che mi chiama l'autoplay quando avvio la pagina
-    mounted:function(){
-        this.autoplay();
-    },
+    // mounted:function(){
+    //     this.autoplay();
+    // },
+
+    //non c'è più bisogno perchè ho implementato function closemodal
+    // che avviene quando non sono in hover sull'immagine
+    
 
 })
