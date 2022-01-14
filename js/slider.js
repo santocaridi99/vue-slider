@@ -1,8 +1,11 @@
 new Vue({
     el:"#app",
     data:{
+        // setto un indice iniziale a 0
+        //setto un timer iniziale a 0 per la timing function
         currentIndex:0,
         timer:0,
+        // modale inizialmente falsa
         modalShow:false,
         photo:[
             {
@@ -29,34 +32,43 @@ new Vue({
 
     },
     methods:{
+        //metodo per mandare avanti la photo
+        //aumento indice 
+        //se indice corrente è > della lunghezza dell'array allora ritorna a zero
         nextPhoto:function(){
             this.currentIndex++;
             if(this.currentIndex>this.photo.length - 1){
                 this.currentIndex=0
             }
         },
+        //stessa cosa ma al contrario
+        //se indice è minore di 0 torna a posizione iniziale 
         prevPhoto:function(){
             this.currentIndex--;
             if(this.currentIndex<0){
                 this.currentIndex = this.photo.length - 1;
             }
         },
+        //autoplay do una variabile che collego a this per evitare conflitti 
+        //il timer che va da 0 a 3 sec chiamerà function nextphoto
         autoplay:function(){
             let t = this;
             this.timer=setInterval(function() {
                t.nextPhoto();
             }, 3000);
         },
+        //apertura modale 
         openModal:function(){
             if (!this.modalShow) { // qui è false
-                this.modalShow = true;
-                clearInterval(this.timer)
+                this.modalShow = true;//diventerà vera
+                clearInterval(this.timer)//si stopperà il timer
             } else {  // qui è true
-                this.modalShow = false;
-                this.autoplay(this.timer);
+                this.modalShow = false;//modale diventerà falsa
+                this.autoplay(this.timer);//avrò autoplay
             }
         }
     },
+    //una funzione mounted esterna o montata che mi chiama l'autoplay quando avvio la pagina
     mounted:function(){
         this.autoplay();
     },

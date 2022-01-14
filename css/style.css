@@ -28,7 +28,7 @@ button{
     font-size: 25px;
     padding: 5px;
 }
-
+/* pulsanti */
 .prev{
     left: 0;
     top: 50%;
@@ -37,6 +37,7 @@ button{
     right: 0;
     top: 50%;
 }
+/* container dei pallini */
 .pallini{
     display: flex;
     position: absolute;
@@ -57,7 +58,7 @@ button{
 .active{
     background-color: white;
 }
-
+/* la modale */
 .pause{
     position: absolute;
     width: 100px;

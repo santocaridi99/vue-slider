@@ -12,13 +12,20 @@
 <body>
     <div id="app">
         <div class="container">
+            <!-- quando vado in hover chiama  function modale -->
+            <!-- src v-bind prende url dall'indice della foto -->
+            <!-- alt v-bind prende nome dall'indice dekka foto -->
             <img @mouseover='openModal' :src="photo[currentIndex].url" :alt="photo[currentIndex].nome">
+            <!-- div con modale , v-if modalShow è vera allora è visibile  -->
             <div v-if="modalShow" class="pause">
                 <i class="fas fa-pause-circle"></i>
             </div>
+            <!-- click chiamano function nextPhoto e prevPhoto -->
             <button @click="prevPhoto" class="prev">&larr;</button>
             <button @click="nextPhoto" class="next">&rarr;</button>
             <div class="pallini">
+                <!-- i pallini ne ho quanti sono gli oggetti  nell'array photo -->
+                <!-- se il currentindex è uguale all'indice dell'oggetto del pallino allora il pallino si attiva -->
               <div v-for="(obj,i) in photo" :class="['pallino', currentIndex===i ? 'active' : 'disable']"></div>
             </div>
             <h1>{{photo[currentIndex].nome}}</h1>
