@@ -2,6 +2,7 @@ new Vue({
     el:"#app",
     data:{
         currentIndex:0,
+        timer:0,
         photo:[
             {
                 nome:'Reggio Calabria',
@@ -39,11 +40,11 @@ new Vue({
                 this.currentIndex = this.photo.length - 1;
             }
         },
-        // autoplay: function(){
-        //     setInterval(function() {
-        //        nextPhoto();
-        //     }, 3000);
-        // }
+        autoplay: function(){
+            this.timer=setInterval(function() {
+               this.nextPhoto();
+            }, 3000);
+        },
 
     }
 })
