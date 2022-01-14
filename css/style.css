@@ -57,3 +57,18 @@ button{
 .active{
     background-color: white;
 }
+
+.pause{
+    position: absolute;
+    width: 100px;
+    height: 100px;
+    background-color: lightgray;
+    border-radius: 50%;
+    top:40%;
+    right: 45%;
+    padding: 24px;
+}
+
+.pause>i{
+    font-size: 50px;
+}

@@ -3,6 +3,7 @@ new Vue({
     data:{
         currentIndex:0,
         timer:0,
+        modalShow:false,
         photo:[
             {
                 nome:'Reggio Calabria',
@@ -46,9 +47,18 @@ new Vue({
                t.nextPhoto();
             }, 3000);
         },
-        mounted:function(){
-            this.autoplay
-        },
+        openModal:function(){
+            if (!this.modalShow) { // qui è false
+                this.modalShow = true;
+                clearInterval(this.timer)
+            } else {  // qui è true
+                this.modalShow = false;
+                this.autoplay(this.timer);
+            }
+        }
+    },
+    mounted:function(){
+        this.autoplay();
+    },
 
-    }
 })

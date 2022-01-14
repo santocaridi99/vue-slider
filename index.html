@@ -5,13 +5,17 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Reggio Calabria e Provincia </title>
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.7.1/css/all.css"integrity="sha384-fnmOCqbTlWIlj8LyTjo7mOUStjsKC4pOpQbqyi7RrhN7udi9RwhKkMHpvLbHG9Sr" crossorigin="anonymous">
     <link rel="stylesheet" href="css/style.css">
     <script src="https://cdn.jsdelivr.net/npm/vue"></script>
 </head>
 <body>
     <div id="app">
         <div class="container">
-            <img :src="photo[currentIndex].url" :alt="photo[currentIndex].nome">
+            <img @mouseover='openModal' :src="photo[currentIndex].url" :alt="photo[currentIndex].nome">
+            <div v-if="modalShow" class="pause">
+                <i class="fas fa-pause-circle"></i>
+            </div>
             <button @click="prevPhoto" class="prev">&larr;</button>
             <button @click="nextPhoto" class="next">&rarr;</button>
             <div class="pallini">
