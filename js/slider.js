@@ -38,7 +38,12 @@ new Vue({
             if(this.currentIndex<0){
                 this.currentIndex = this.photo.length - 1;
             }
-        }
+        },
+        // autoplay: function(){
+        //     setInterval(function() {
+        //        nextPhoto();
+        //     }, 3000);
+        // }
 
     }
 })
