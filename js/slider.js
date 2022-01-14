@@ -40,10 +40,14 @@ new Vue({
                 this.currentIndex = this.photo.length - 1;
             }
         },
-        autoplay: function(){
+        autoplay:function(){
+            let t = this;
             this.timer=setInterval(function() {
-               this.nextPhoto();
+               t.nextPhoto();
             }, 3000);
+        },
+        mounted:function(){
+            this.autoplay
         },
 
     }
