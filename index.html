@@ -14,6 +14,9 @@
             <img :src="photo[currentIndex].url" :alt="photo[currentIndex].nome">
             <button @click="prevPhoto" class="prev">&larr;</button>
             <button @click="nextPhoto" class="next">&rarr;</button>
+            <div class="pallini">
+              <div v-for="(obj,i) in photo" :class="['pallino', currentIndex===i ? 'active' : 'disable']"></div>
+            </div>
         </div>
     </div>
 
