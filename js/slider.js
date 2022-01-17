@@ -51,6 +51,7 @@ new Vue({
         },
         //autoplay do una variabile che collego a this per evitare conflitti 
         //il timer che va da 0 a 3 sec chiamerà function nextphoto
+        //avrei potuto usare la arrow function senza dichairare variabile = this
         autoplay:function(){
             let t = this;
             this.timer=setInterval(function() {
@@ -72,13 +73,9 @@ new Vue({
             }
         }
     },
-    //una funzione mounted esterna o montata che mi chiama l'autoplay quando avvio la pagina
-    // mounted:function(){
-    //     this.autoplay();
-    // },
-
-    //non c'è più bisogno perchè ho implementato function closemodal
-    // che avviene quando non sono in hover sull'immagine
-    
+    // una funzione mounted esterna o montata che mi chiama l'autoplay quando avvio la pagina
+    mounted:function(){
+        this.autoplay();
+    },
 
 })
